@@ -6,7 +6,7 @@
 /*   By: karllenard <karllenard@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 22:40:49 by karllenard        #+#    #+#             */
-/*   Updated: 2023/02/12 22:41:04 by karllenard       ###   ########.fr       */
+/*   Updated: 2023/02/12 23:08:56 by karllenard       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 t_struct *initstruct(char **argv, int number)
 {
-    t_struct *s;
     pthread_t thread_id;
+    t_struct *s;
     
-    thread_id = NULL;
     s = malloc(sizeof(t_struct));
-    
+    thread_id = NULL;
     s->number = number;
     s->t_die = ft_atoi(argv[2]);
     s->t_eat = ft_atoi(argv[3]);

@@ -6,7 +6,7 @@
 /*   By: karllenard <karllenard@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:32:51 by karllenard        #+#    #+#             */
-/*   Updated: 2023/02/12 22:42:18 by karllenard       ###   ########.fr       */
+/*   Updated: 2023/02/12 23:07:08 by karllenard       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int main (int argc, char **argv)
     if (!s)
         return (0);
     cometothetable(s);
-    agreement(s);
+    //agreement(s);
     return(0);
 }
