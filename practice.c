@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   practice.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
+/*   By: karllenard <karllenard@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 14:19:20 by vlenard           #+#    #+#             */
-/*   Updated: 2023/02/10 18:50:56 by vlenard          ###   ########.fr       */
+/*   Updated: 2023/02/12 16:28:41 by karllenard       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/time.h>
-#include <stdio.h>
-#include <pthread.h>
+#include "hedonism.h"
 
 typedef struct s_struct
 {
@@ -49,10 +47,6 @@ void ft_initstruct(t_struct *s, int *fork, pthread_t *philo_id)
 
 int main ()
 {
-	// struct timeval time;
-	// gettimeofday(&time, NULL);
-	// printf("seconds : %ld\nmicro seconds : %d\n",
-    // time.tv_sec, time.tv_usec);
 
 	pthread_t philo_id[4];
 	t_struct s;
@@ -78,3 +72,7 @@ int main ()
 	}
 	return (0);
 }
+	// struct timeval time;
+	// gettimeofday(&time, NULL);
+	// printf("seconds : %ld\nmicro seconds : %d\n",
+    // time.tv_sec, time.tv_usec);
