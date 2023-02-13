@@ -3,74 +3,67 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: karllenard <karllenard@student.42.fr>      +#+  +:+       +#+        */
+/*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 22:42:19 by karllenard        #+#    #+#             */
-/*   Updated: 2023/02/12 23:10:41 by karllenard       ###   ########.fr       */
+/*   Updated: 2023/02/13 16:31:42 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "existentialism.h"
 
-int initphilo(t_struct *philo)
-{
-    philo = malloc(sizeof(t_struct));
-    if (!philo)
-        return (-1);
-    printf("lala\n");
-    return (0);
-}
-
 void eat()
 {}
 void think()
 {}
-void sleep()
+void sleeep()
 {}
 
-//hier bin ich
 void *philothread(void *ptr)
 {
-    t_struct *s;
-    t_struct *philo;
-    
-    printf("hi\n");
-    s = (struct s_struct *)ptr;
-    philo = NULL;
-    if (initphilo(philo) == -1)
-        return ((void *)-1);
-    while (1)
-    {
-        eat();
-        sleep();
-        think();
-    }
-    
-    return (NULL);
+	t_struct	*s;
+	
+	s = (struct s_struct *)ptr;
+	pthread_mutex_lock(&s->lock);
+	s->count++;
+	pthread_mutex_unlock(&s->lock);
+	while (1)
+	{
+		eat();
+		sleeep();
+		think();
+		break;
+	}
+	
+	return (NULL);
 }
 
 int cometothetable(t_struct *s)
 {
-    int i;
+	int	i;
 
-    i = -1;
-    while (++i != s->number)
-    {
-        if (pthread_create(&s->thread_id, NULL, philothread, s) != 0)
-            return (-1);
-    }
-    return (0);
+	//printf("hallo\n");
+	printf("COUNTER %d\n", s->count);
+	i = -1;
+	while (++i != s->number)
+	{
+		if (pthread_create(&s->philo[i].tid, NULL, philothread, s) != 0)
+			return (-1);
+	}
+	usleep (100000);
+	printf("COUNTER %d\n", s->count);
+	return (0);
 }
 
 int agreement(t_struct *s)
 {
-    int i;
+	int	i;
 
-    i = -1;
-    while (++i != s->number)
-    {
-        if (pthread_join(s->thread_id, NULL) != 0)
-            return (-1);
-    }
-    return (0);
+	i = -1;
+	while (++i != s->number)
+	{
+		if (pthread_join(s->philo[i].tid, NULL) != 0)
+			return (-1);
+	}
+	return (0);
 }
