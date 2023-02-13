@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 22:40:49 by karllenard        #+#    #+#             */
-/*   Updated: 2023/02/13 16:29:44 by vlenard          ###   ########.fr       */
+/*   Updated: 2023/02/13 18:19:45 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,13 @@ t_philo	*initphilo(t_struct *s)
 	return (s->philo);
 }
 
-t_struct	*initstruct(char **argv, int number)
+t_struct	*initstruct(char **argv)
 {
 	t_struct	*s;
+	pthread_mutex_t	lock;
+	int			number;
 	
+	number = ft_atoi(argv[1]);
 	if (pthread_mutex_init(&lock, NULL) != 0)
 	{
 		printf("\n mutex init failed\n");

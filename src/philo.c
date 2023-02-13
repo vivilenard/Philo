@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 22:42:19 by karllenard        #+#    #+#             */
-/*   Updated: 2023/02/13 16:31:42 by vlenard          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:35:59 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ int cometothetable(t_struct *s)
 {
 	int	i;
 
-	//printf("hallo\n");
-	printf("COUNTER %d\n", s->count);
 	i = -1;
 	while (++i != s->number)
 	{

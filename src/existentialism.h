@@ -6,7 +6,7 @@
 /*   By: vlenard <vlenard@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:17:27 by karllenard        #+#    #+#             */
-/*   Updated: 2023/02/13 16:27:55 by vlenard          ###   ########.fr       */
+/*   Updated: 2023/02/13 18:19:38 by vlenard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include <pthread.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-pthread_mutex_t	lock;
 
 typedef struct s_philo
 {
@@ -40,7 +38,7 @@ typedef struct s_struct
 	pthread_mutex_t	lock;
 }				t_struct;
 
-t_struct	*initstruct(char **argv, int number);
+t_struct	*initstruct(char **argv);
 int			ft_atoi(const char *str);
 int			cometothetable(t_struct *s);
 int			agreement(t_struct *s);
